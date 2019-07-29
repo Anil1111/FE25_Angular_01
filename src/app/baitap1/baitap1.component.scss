@@ -1,0 +1,30 @@
+@mixin hf ($bg-color, $padding){
+    background-color: $bg-color;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: $padding;
+    display: block;
+}
+@mixin content($width, $color){
+    width: $width;
+    background-color: $color;
+    text-align: center;
+    color: white;
+    padding: 100px;
+}
+.header{
+    @include hf(red, 50px);
+}
+.contents{
+    display: flex;
+    .content{
+        @include content(70%, yellow);
+    }
+    .sidebar{
+        @include content(30%, green);
+    }
+}
+.footer{
+    @include hf(blue, 30px);
+}
