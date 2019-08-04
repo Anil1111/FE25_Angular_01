@@ -1,0 +1,53 @@
+<div class="form-group">
+  <label for="email">Ma SP:</label>
+  <input type="text" class="form-control" id="email" #masp />
+</div>
+<div class="form-group">
+  <label for="pwd">Ten SP</label>
+  <input type="text" class="form-control" id="pwd" #tensp />
+</div>
+<div class="form-group">
+  <label for="pwd">Don gia: </label>
+  <input type="number" class="form-control" id="price" #price />
+</div>
+<div class="form-group form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" /> Remember me
+  </label>
+</div>
+<button
+  type="submit"
+  class="btn btn-primary"
+  (click)="xuLy(masp.value, tensp.value, price.value)"
+>
+  Submit
+</button>
+
+<div *ngIf="isClicked">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Ten SP</th>
+        <th>MA SP</th>
+        <th>Price</th>
+        <th>Nút</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let sanpham of mangSP; let stt = index"
+        [ngClass]="{ background: (stt + 1) % 2 === 0 }"
+      >
+        <td>{{ sanpham.ma }}</td>
+        <td>{{ sanpham.ten }}</td>
+        <td>{{ sanpham.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-container *ngTemplateOutlet="template"></ng-container>
+
+<ng-template #template>
+  <div>Cybersoft</div>
+</ng-template>

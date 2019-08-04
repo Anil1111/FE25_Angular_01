@@ -7,8 +7,6 @@ import { Baitap4SmartphoneComponent } from './baitap4-smartphone/baitap4-smartph
 import { Baitap4LaptopComponent } from './baitap4-laptop/baitap4-laptop.component';
 import { Baitap4PromotionComponent } from './baitap4-promotion/baitap4-promotion.component';
 
-
-
 @NgModule({
   declarations: [Baitap4Component, Baitap4HeaderComponent, Baitap4CarouselComponent, Baitap4SmartphoneComponent, Baitap4LaptopComponent, Baitap4PromotionComponent],
   exports:  [Baitap4Component, Baitap4HeaderComponent, Baitap4CarouselComponent, Baitap4SmartphoneComponent, Baitap4LaptopComponent, Baitap4PromotionComponent],

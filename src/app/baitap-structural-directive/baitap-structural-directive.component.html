@@ -1,0 +1,57 @@
+<h1>Bài Tập Structural Diriective</h1>
+<h4
+  style="background-color: #605E5D;
+color: white;
+padding-left: 10px;"
+>
+  Quản lý danh mục sản phẩm
+</h4>
+<div class="form-inline" style="padding: 10px;">
+  <input type="text" class="form-control" placeholder="MaSP" #masp />
+  <input type="text" class="form-control" placeholder="TenSP" #tensp />
+  <input type="number" class="form-control" placeholder="Gia" #price />
+  <button
+    type="submit"
+    class="btn btn-success"
+    (click)="themsp(masp.value, tensp.value, price.value)"
+  >
+    Thêm sản phẩm
+  </button>
+</div>
+<br />
+<h4
+  style="background-color: #605E5D;
+color: white;
+padding-left: 10px;"
+>
+  Danh mục sản phẩm
+</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Mã SP</th>
+      <th>Tên SP</th>
+      <th>Giá</th>
+      <th>Nút</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="mangSanPham.length > 0">
+      <tr
+        *ngFor="
+          let sanpham of mangSanPham
+            | paginate: { itemsPerPage: 10, currentPage: p }
+        "
+      >
+        <td>{{ sanpham.MaSP }}</td>
+        <td>{{ sanpham.TenSP }}</td>
+        <td>{{ sanpham.Gia }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="xoa(sanpham)">Xoá</button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

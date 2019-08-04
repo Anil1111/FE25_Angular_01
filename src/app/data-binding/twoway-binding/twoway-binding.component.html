@@ -1,0 +1,20 @@
+<h3 style="color: red">Two way Binding</h3>
+<input type="text" [value]="name" [(ngModel)]="name" />
+
+<p>{{ name }}</p>
+
+<br />
+<br />
+<h3 style="color: red">Register Form</h3>
+<label for="email">Email</label>
+<input type="text" id="email" [(ngModel)]="email" />
+<br />
+<label for="Fullname">Full name</label>
+<input type="text" id="Fullname" #thamso />
+<br />
+<button class="btn btn-success" (click)="isClicked(thamso.value)">
+  Submit
+</button>
+
+<p>Email: {{ email }}</p>
+<p>Full Name: {{ fullname }}</p>

@@ -1,0 +1,14 @@
+<!-- <h3 style="color: red">*ngIf</h3>
+<div *ngIf="status">Cybersoft</div>
+<button class="btn btn-success" (click)="show()">Show</button>
+<button class="btn btn-danger" (click)="hide()">Hide</button> -->
+
+<div *ngIf="statusLogin; else LoginCheck">
+  <button class="btn btn-danger" (click)="SignOut()">Dang Xuat</button>
+  <p>Xin chao!</p>
+</div>
+
+<ng-template #LoginCheck>
+  <button class="btn btn-success" (click)="Login()">Dang Nhap</button>
+  <p>Chua dang nhap</p>
+</ng-template>
