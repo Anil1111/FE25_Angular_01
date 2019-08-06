@@ -32,11 +32,16 @@ export class BaitapStructuralDirectiveComponent implements OnInit {
       Gia: price
     };
     this.mangSanPham.push(this.sp);
+    localStorage.setItem("sp", JSON.stringify(this.mangSanPham));
   }
   xoa(sanpham) {
     this.mangSanPham.splice(this.mangSanPham.indexOf(sanpham), 1);
+    localStorage.setItem("sp", JSON.stringify(this.mangSanPham));
   }
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let allCookies = JSON.parse(localStorage.getItem("sp"));
+    this.mangSanPham = allCookies;
+  }
 }
