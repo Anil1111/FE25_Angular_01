@@ -1,0 +1,32 @@
+<div class="container">
+  <h3>Bai tap dat ghe xe Bus</h3>
+  <div class="row">
+    <div class="col-sm-6">
+      <ng-container *ngFor="let ghe of mangGhe; let stt = index">
+        <app-item-ghe [ghe]="ghe" (eventDatGhe)="DatGhe($event)"></app-item-ghe>
+        <br *ngIf="(stt + 1) % 4 === 0" />
+      </ng-container>
+    </div>
+    <div class="col-sm-6">
+      <h3 style="color: yellow">
+        Danh sách ghế đã đặt ({{ mangGheDaDat.length }})
+      </h3>
+      <p *ngFor="let GheDaDat of mangGheDaDat">
+        Ghế : số {{ GheDaDat.SoGhe }} ${{ GheDaDat.Gia }}
+        <button
+          class="btn btn-danger"
+          (click)="huyGheDaDat(GheDaDat)"
+          (click)="viewchildren(GheDaDat)"
+        >
+          Huy
+        </button>
+      </p>
+      <div *ngIf="mangGheDaDat.length > 0">
+        <h4 style="color: red;">Tổng tiền là: {{ TongTien }}</h4>
+        <button class="btn btn-success" (click)="viewGheDaDat(mangGheDaDat)">
+          Đặt Ghế
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
