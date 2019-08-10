@@ -14,6 +14,11 @@ export class ItemGheComponent implements OnInit {
   ngOnInit() {}
   isChonGhe(ghe) {
     this.count++;
+    if (this.count === 3) {
+      this.count = 0;
+      this.count++;
+    }
+    console.log(this.count);
     if (this.count > 1) {
       this.trangThaiDatGhe = true;
     } else {

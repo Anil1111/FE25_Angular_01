@@ -54,7 +54,7 @@ export class DanhSachGheComponent implements OnInit {
         if (ghe.TrangThai === false && item.count === 1) {
           this.mangGheDaDat.push(ghe);
           this.TongTien += ghe.Gia;
-        } else if (item.count > 1) {
+        } else if (item.count % 2 === 0) {
           alert("bạn đã đặt");
         } else alert("Bạn không thể đặt mua");
       }
@@ -63,6 +63,12 @@ export class DanhSachGheComponent implements OnInit {
   huyGheDaDat(ghe) {
     this.TongTien -= ghe.Gia;
     this.mangGheDaDat.splice(this.mangGheDaDat.indexOf(ghe), 1);
+    this.tagListItemGhe.map(item => {
+      if (ghe.SoGhe === item.ghe.SoGhe) {
+        item.count = 0;
+        console.log(item.count);
+      }
+    });
   }
   viewchildren(ghe) {
     this.tagListItemGhe.map(item => {

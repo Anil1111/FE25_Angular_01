@@ -24,6 +24,7 @@ import { DataBindingModule } from "./data-binding/data-binding.module";
 import { StructuralDirectiveModule } from "./structural-directive/structural-directive.module";
 import { AtrributeDirectiveModule } from "./atrribute-directive/atrribute-directive.module";
 import { BaitapStructuralDirectiveModule } from "./baitap-structural-directive/baitap-structural-directive.module";
+import { BaitapBusModule } from './baitap-bus/baitap-bus.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { BaitapStructuralDirectiveModule } from "./baitap-structural-directive/b
     StructuralDirectiveModule,
     AtrributeDirectiveModule,
     BaitapStructuralDirectiveModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BaitapBusModule
   ],
   providers: [],
   bootstrap: [AppComponent]
