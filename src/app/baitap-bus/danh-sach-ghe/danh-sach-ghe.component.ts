@@ -48,27 +48,12 @@ export class DanhSachGheComponent implements OnInit {
   ];
   mangGheDaDat: any = [];
   constructor() {}
-  DatGhe(ghe) {
-    this.tagListItemGhe.map(item => {
-      if (ghe.SoGhe === item.ghe.SoGhe) {
-        if (ghe.TrangThai === false && item.count === 1) {
-          this.mangGheDaDat.push(ghe);
-          this.TongTien += ghe.Gia;
-        } else if (item.count % 2 === 0) {
-          alert("bạn đã đặt");
-        } else alert("Bạn không thể đặt mua");
-      }
-    });
-  }
-  huyGheDaDat(ghe) {
-    this.TongTien -= ghe.Gia;
-    this.mangGheDaDat.splice(this.mangGheDaDat.indexOf(ghe), 1);
-    this.tagListItemGhe.map(item => {
-      if (ghe.SoGhe === item.ghe.SoGhe) {
-        item.count = 0;
-        console.log(item.count);
-      }
-    });
+  DatGhe(objGhe) {
+    if (objGhe.trangthai) {
+      this.mangGheDaDat.push(objGhe.ghe);
+    } else {
+      this.mangGheDaDat.splice(this.mangGheDaDat.indexOf(objGhe.ghe), 1);
+    }
   }
   viewchildren(ghe) {
     this.tagListItemGhe.map(item => {
@@ -80,8 +65,12 @@ export class DanhSachGheComponent implements OnInit {
   viewGheDaDat(mangGheDaDat) {
     mangGheDaDat.map(item => {
       item.TrangThai = true;
-      localStorage.setItem("dsGhe", JSON.stringify(this.mangGhe));
     });
+    localStorage.setItem("dsGhe", JSON.stringify(this.mangGhe));
+    this.mangGheDaDat = [];
+  }
+  huyGheDaDat(ghe) {
+    this.mangGheDaDat.splice(this.mangGheDaDat.indexOf(ghe), 1);
   }
   ngOnInit() {
     let allCookies = JSON.parse(localStorage.getItem("dsGhe"));

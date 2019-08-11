@@ -1,7 +1,8 @@
 <button
   class="btn ghe"
+  [disabled]="ghe.TrangThai"
   [ngClass]="{ gheDangChon: trangThaiDatGhe, gheDaDat: ghe.TrangThai }"
-  (click)="isChonGhe(ghe)"
+  (click)="isChonGhe()"
 >
   {{ ghe.SoGhe }}
 </button>

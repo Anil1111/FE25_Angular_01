@@ -6,25 +6,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class ItemGheComponent implements OnInit {
   trangThaiDatGhe: boolean = false;
-  count: number = 0;
   @Input() ghe;
   @Output() eventDatGhe = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
-  isChonGhe(ghe) {
-    this.count++;
-    if (this.count === 3) {
-      this.count = 0;
-      this.count++;
-    }
-    console.log(this.count);
-    if (this.count > 1) {
-      this.trangThaiDatGhe = true;
-    } else {
-      this.trangThaiDatGhe = !this.trangThaiDatGhe;
-    }
+  isChonGhe() {
+    this.trangThaiDatGhe = !this.trangThaiDatGhe;
     //if (this.trangThaiDatGhe === false)
-    this.eventDatGhe.emit(ghe);
+    const objGhe = {
+      ghe: this.ghe,
+      trangthai: this.trangThaiDatGhe
+    };
+    this.eventDatGhe.emit(objGhe);
   }
 }
