@@ -1,0 +1,26 @@
+<section id="smartphone" class="container-fluid pt-5 pb-5">
+  <h1 class="text-white text-center">BEST SMARTPHONE</h1>
+  <div class="row">
+    <ng-container *ngFor="let smartphone of arrSmartPhone">
+      <app-smart-phone
+        [smartphone]="smartphone"
+        (clickedPhone)="clickedPhone($event)"
+        (clickedDetail)="clickedDetail($event)"
+      ></app-smart-phone>
+    </ng-container>
+  </div>
+</section>
+<section id="laptop" class="container-fluid pt-5 pb-5 bg-light text-dark">
+  <h1 class="text-center">BEST LAPTOP</h1>
+  <div class="row">
+    <ng-container *ngFor="let laptop of arrLapTop">
+      <app-laptop
+        [laptop]="laptop"
+        (clickedLaptop)="clickedLaptop($event)"
+        (clickedDetailLaptop)="clickedDetailLaptop($event)"
+      ></app-laptop>
+    </ng-container>
+  </div>
+</section>
+
+<app-modal [detail]="detail"></app-modal>

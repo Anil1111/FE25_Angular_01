@@ -17,14 +17,15 @@ import { ItemCardComponent } from "./baitap2/list-card/item-card/item-card.compo
 import { Baitap2FooterComponent } from "./baitap2/baitap2-footer/baitap2-footer.component";
 
 // import module
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule } from "ngx-pagination";
 import { Baitap3Module } from "./baitap3/baitap3.module";
 import { Baitap4Module } from "./baitap4/baitap4.module";
 import { DataBindingModule } from "./data-binding/data-binding.module";
 import { StructuralDirectiveModule } from "./structural-directive/structural-directive.module";
 import { AtrributeDirectiveModule } from "./atrribute-directive/atrribute-directive.module";
 import { BaitapStructuralDirectiveModule } from "./baitap-structural-directive/baitap-structural-directive.module";
-import { BaitapBusModule } from './baitap-bus/baitap-bus.module';
+import { BaitapBusModule } from "./baitap-bus/baitap-bus.module";
+import { TrangChuModule } from './trang-chu/trang-chu.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { BaitapBusModule } from './baitap-bus/baitap-bus.module';
     AtrributeDirectiveModule,
     BaitapStructuralDirectiveModule,
     NgxPaginationModule,
-    BaitapBusModule
+    BaitapBusModule,
+    TrangChuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
